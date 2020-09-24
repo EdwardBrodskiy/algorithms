@@ -22,19 +22,20 @@ def time_all_sorts_on(arr=None, size=1000000):
     arrays = {**arrays, **create_shufled_arrays(size)}
 
     print(f'timing on array of length {size}')
-    print('sort name', end='\t')
+    all_words = [*map(lambda x: x.__name__, sorts), 'sort name', *arrays.keys()]
+    max_name_len = len(max(all_words, key=len))
+    print('sort name'.ljust(max_name_len), end=' | ')
     for name in arrays:
-        print(name, end='\t')
-    print('')
+        print(name.ljust(max_name_len), end=' | ')
+    print('\n' + '-' * ((max_name_len + 3) * (len(arrays) + 1) - 1))
     for sort in sorts:
-        print(sort.__name__, end='\t')
+        print(sort.__name__.ljust(max_name_len), end=' | ')
         for name in arrays:
             start = time.time()
             sort(arrays[name])
             total_time = time.time() - start
-            print(round(total_time, 6), end='\t')
+            print(str(round(total_time, 6)).ljust(max_name_len), end=' | ')
         print()
-
 
 
 if __name__ == '__main__':
