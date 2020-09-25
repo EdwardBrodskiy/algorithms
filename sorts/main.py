@@ -1,17 +1,17 @@
-from sorts.redix import redix_sort
+from sorts.radix import radix_sort
 import time
 from sorts.shuffled_arrays import create_shufled_arrays
 
 sorts = [sorted,
-         redix_sort,
-         lambda arr: redix_sort(arr, redix=16),
-         lambda arr: redix_sort(arr, redix=128),
-         lambda arr: redix_sort(arr, redix=256),
+         radix_sort,
+         lambda arr: radix_sort(arr, radix=16),
+         lambda arr: radix_sort(arr, radix=128),
+         lambda arr: radix_sort(arr, radix=256),
          ]
 
-sorts[2].__name__ = 'redix 16'
-sorts[3].__name__ = 'redix 128'
-sorts[4].__name__ = 'redix 256'
+sorts[2].__name__ = 'radix 16'
+sorts[3].__name__ = 'radix 128'
+sorts[4].__name__ = 'radix 256'
 
 
 def time_all_sorts_on(arr=None, size=1000000):
