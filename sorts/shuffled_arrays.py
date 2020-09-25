@@ -20,7 +20,7 @@ def create_shufled_arrays(size, types='*'):
 
 
 def only_once(size):
-    arr = list(range(100000))
+    arr = list(range(size))
     random.shuffle(arr)
     return arr
 
