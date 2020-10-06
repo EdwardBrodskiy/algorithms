@@ -1,6 +1,8 @@
 # sorts
 from sorts.radix import radix_sort
 from sorts.bubble import bubble_sort
+from sorts.merge import merge_sort
+from sorts.quick import quick_sort
 # tools
 import time
 from sorts.shuffled_arrays import create_shufled_arrays
@@ -12,6 +14,8 @@ sorts = [sorted,
          lambda arr: radix_sort(arr, radix=128),
          lambda arr: radix_sort(arr, radix=256),
          bubble_sort,
+         merge_sort,
+         quick_sort
          ]
 
 sorts[2].__name__ = 'radix 16'
